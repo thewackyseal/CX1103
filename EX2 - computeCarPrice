@@ -1,0 +1,48 @@
+#include <stdio.h>
+int main()
+{
+   int list, coe = 0, cat;
+   double discounted, luxury = 0, gst, total;
+            
+   printf("Please enter the list price: \n");
+   scanf("%d", &list);   
+   printf("Please enter the category: \n");
+   scanf("%d", &cat);     
+
+   /* Write your program code here */
+   discounted = list*0.9;
+   if (discounted<100000)
+   {
+       gst = 1.03*discounted;
+       switch(cat)
+       {
+           case 1:total = gst+70000;
+           break;
+           case 2: total = gst+80000;
+           break;
+           case 3: total = gst+23000;
+           break;
+           case 4: total = gst+600;
+           break;
+       }
+   }
+   else
+   {
+       gst = 1.03*discounted;
+       luxury = 1.1*gst;
+       switch(cat)
+       {
+           case 1: total = luxury+70000;
+           break;
+           case 2: total = luxury+80000;
+           break;
+           case 3: total = luxury+23000;
+           break;
+           case 4: total = luxury+600;
+           break;
+       }
+   }
+
+   printf("Total price is $%.2lf\n", total);
+   return 0;  
+}
