@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <string.h>
+struct student{
+   char name[20]; /* student name */
+   double testScore; /* test score */
+   double examScore; /* exam score */
+   double total;  /* total = (testScore+examScore)/2 */
+};
+double average();
+int main()
+{
+   printf("average(): %.2f\n", average());           
+   return 0;
+}
+double average()
+{
+   /* Write your program code here */
+   char *p, dummychar;
+   int i=0, j;
+   float avg=0, result =0, test=0, exam=0;
+   struct student penis[50];
+   while (1)
+   {
+       printf("Enter student name:\n");
+       fgets(penis[i].name,80,stdin);
+       if (p=strchr(penis[i].name,'\n')) *p='\0';
+       if (strcmp(penis[i].name,"END")==0) break;
+       printf("Enter test score:\n");
+       scanf("%d", &(penis[i].testScore));
+       scanf("%c", &dummychar);
+       printf("Enter exam score:\n");
+       scanf("%d",&(penis[i].examScore));
+       scanf("%c", &dummychar);
+       test = penis[i].testScore;
+       exam = penis[i].examScore;
+       printf("test %.2f", test);
+       printf("exam %.2f", exam);
+       penis[i].total = (test+exam)/2;
+       printf("Student %s total = %.2f\n",penis[i].name,penis[i].total);
+       i++;
+   }
+   for (j=0;j<i;j++)
+   {
+       result += penis[j].total;
+   }
+   avg = result/i;
+   return avg;
+}
